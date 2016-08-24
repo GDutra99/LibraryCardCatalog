@@ -9,11 +9,26 @@ namespace LibraryCardCatalog
 {
     public class CardCatalog
     {
-        public static void ListBooks(List<Book> myBooks)
+
+        internal static void ListBooks()
         {
-            foreach (Book book in myBooks)
+            Console.Clear();
+            List<Book> myBooks = new List<Book>();
+             foreach (Book book in myBooks)
             {
-                Console.WriteLine(book.Title);
+                if (book.Count == 0)
+                {
+                    Console.WriteLine("There are no books in the library"); //Ask Joe how can we make this work. The idea was: if there is no books added it would print that.
+                                                                            //Otherwise it would print the books in the library that have been added.
+                }
+                else
+                {
+                    Console.WriteLine(book.Title, book.Author, book.YearPublished, book.Genre);
+                    Console.WriteLine();
+                }
+                    
+                    
+
             }
             Console.ReadLine();
         }
