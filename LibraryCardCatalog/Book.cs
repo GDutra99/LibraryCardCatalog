@@ -8,6 +8,7 @@ namespace LibraryCardCatalog
 {
      public class Book
     {
+        public int Count;
         public string Title { get; set; }
         public string Author { get; set; }
         public int YearPublished { get; set; }
@@ -20,6 +21,7 @@ namespace LibraryCardCatalog
             Author = author;
             Genre = genre;
             YearPublished = yearPublished;
+            Count++; // not sure if this works yet.
         }
         
 
