@@ -17,11 +17,6 @@ namespace LibraryCardCatalog
             }
             Console.ReadLine();
         }
-         
-         
-         
-         
-
     }
     
 }
