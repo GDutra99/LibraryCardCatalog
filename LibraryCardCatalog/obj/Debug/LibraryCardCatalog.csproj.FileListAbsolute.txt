@@ -1,1 +1,2 @@
 c:\users\codingtemple\documents\visual studio 2015\Projects\LibraryCardCatalog\LibraryCardCatalog\bin\Debug\LibraryCardCatalog.exe.config
+C:\Users\codingtemple\Documents\GitHub\LibraryCardCatalog\LibraryCardCatalog\bin\Debug\LibraryCardCatalog.exe.config
