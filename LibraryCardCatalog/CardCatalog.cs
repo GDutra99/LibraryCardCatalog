@@ -26,6 +26,9 @@ namespace LibraryCardCatalog
                     Console.WriteLine(book.Title, book.Author, book.YearPublished, book.Genre);
                     Console.WriteLine();
                 }
+
+
+
                     
                     
 
