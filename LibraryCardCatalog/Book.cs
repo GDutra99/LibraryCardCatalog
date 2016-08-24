@@ -11,10 +11,19 @@ namespace LibraryCardCatalog
         public string Title { get; set; }
         public string Author { get; set; }
         public int YearPublished { get; set; }
-        public string Type { get; set; }
         public Genre Genre { get; set; }
 
+        public Book(string title, string author, int yearPublished, Genre genre)
+        {
+            Title = title;
+            Author = author;
+            Genre = genre;
+            YearPublished = yearPublished;
+        }
+
     }
+
+    
     public enum Genre
     {
         ScienceFiction,
