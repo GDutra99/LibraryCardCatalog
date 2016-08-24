@@ -17,6 +17,34 @@ namespace LibraryCardCatalog
             }
             Console.ReadLine();
         }
+
+        public void AddBook()
+        {
+            Console.Clear();
+
+            Console.WriteLine("What is the title of the book");
+            string title = Console.ReadLine();
+
+            Console.WriteLine("What is the author of the book");
+            string author = Console.ReadLine();
+
+            Console.WriteLine("What is the title of the book");
+            int year = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("What is the genre of the book");
+            g = Console.ReadLine();
+
+            Genre genre = (Genre)Enum.Parse(typeof(Genre), g)
+
+
+            //Book b = new Book(title, author, year, genre);
+
+
+
+
+
+
+        }
     }
     
 }
