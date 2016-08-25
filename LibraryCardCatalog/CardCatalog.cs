@@ -12,33 +12,26 @@ namespace LibraryCardCatalog
 
         internal static void ListBooks()
         {
-            Console.Clear();
+
             List<Book> myBooks = new List<Book>();
-             foreach (Book book in myBooks)
+            if (myBooks.Count == 0)
             {
-                if (book.Count == 0)
-                {
-                    Console.WriteLine("There are no books in the library"); //Ask Joe how can we make this work. The idea was: if there is no books added it would print that.
-                                                                            //Otherwise it would print the books in the library that have been added.
-                }
-                else
+                Console.WriteLine("There are no books in the library");
+            }
+            else
+            {
+                foreach (Book book in myBooks) // Fixed this, now it will print the message when the book count = 0,
+                                               // since we can't save the books I don't know if the foreach loop works.
                 {
                     Console.WriteLine(book.Title, book.Author, book.YearPublished, book.Genre);
                     Console.WriteLine();
                 }
-
-
-
-                    
-                    
-
             }
-            Console.ReadLine();
         }
-
-        public void AddBook()
+        internal static void AddBook()      //Kinda fixed this thing but we need to sent the books that the user added to a file,
+                                           //otherwise it won't save them.
         {
-            Console.Clear();
+
 
             Console.WriteLine("What is the title of the book");
             string title = Console.ReadLine();
@@ -46,23 +39,20 @@ namespace LibraryCardCatalog
             Console.WriteLine("What is the author of the book");
             string author = Console.ReadLine();
 
-            Console.WriteLine("What is the title of the book");
+            Console.WriteLine("When was the book published");
             int year = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("What is the genre of the book");
-            g = Console.ReadLine();
-
-            Genre genre = (Genre)Enum.Parse(typeof(Genre), g)
-
-
-            //Book b = new Book(title, author, year, genre);
-
-
-
-
-
+            string g = Console.ReadLine();
+            Genre genre = (Genre)Enum.Parse(typeof(Genre), g);
 
         }
     }
-    
 }
+
+        
+
+    
+    
+    
+
