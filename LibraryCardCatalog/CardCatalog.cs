@@ -29,7 +29,7 @@ namespace LibraryCardCatalog
             }
         }
         internal static void AddBook()      //Kinda fixed this thing but we need to sent the books that the user added to a file,
-                                           //otherwise it won't save them.
+                                            //otherwise it won't save them.
         {
 
 
@@ -42,10 +42,18 @@ namespace LibraryCardCatalog
             Console.WriteLine("When was the book published");
             int year = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("What is the genre of the book");
-            string g = Console.ReadLine();
-            Genre genre = (Genre)Enum.Parse(typeof(Genre), g);
+            Genre genre;
+            bool displayGenre;
+            do
+            {
+                Console.WriteLine("What is the genre of the book");
+                Console.WriteLine("Options are: ScienceFiction, Fiction, Satire, Drama, Action, Adventure, Romance, Mystery, Horror, & Health ");
+                string g = Console.ReadLine();
+                displayGenre = Enum.TryParse<Genre>(g, out genre);
 
+            } while  (displayGenre == false);
+            
+   
         }
     }
 }
