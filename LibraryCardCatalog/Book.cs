@@ -32,7 +32,7 @@ namespace LibraryCardCatalog
         Fiction,
         Satire,
         Drama,
-        Action,         // Separated Action and Adventure
+        Action,
         Adventure,
         Romance,
         Mystery,

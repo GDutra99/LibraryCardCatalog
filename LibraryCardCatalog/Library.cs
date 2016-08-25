@@ -27,8 +27,8 @@ namespace LibraryCardCatalog
         {
             Console.WriteLine("Welcome to the digital library, choose an option:");
             Console.WriteLine("1) List All Books");
-            Console.WriteLine("2) for Add A Book");
-            Console.WriteLine("3) for Save and Exit");
+            Console.WriteLine("2) To Add A Book");
+            Console.WriteLine("3) To Save and Exit");
             string a = Console.ReadLine();
             int x;
             int.TryParse(a, out x);
@@ -71,8 +71,15 @@ namespace LibraryCardCatalog
         {
             Console.WriteLine("1) Create a new file.");
             Console.WriteLine("2) Open a file.");
-            Console.ReadLine();
-            Console.Clear();
+            string b = Console.ReadLine();
+            int y;
+            int.TryParse(b, out y);
+            
+
+            
+            
+            //Console.ReadLine();
+            //Console.Clear();
         }
 
 
