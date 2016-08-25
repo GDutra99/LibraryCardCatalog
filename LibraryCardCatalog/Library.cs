@@ -12,6 +12,7 @@ namespace LibraryCardCatalog
 
         public static void Main(string[] args)
         {
+            //FileName();
             bool displayMenu = true;
             while (displayMenu)
             {
@@ -53,7 +54,7 @@ namespace LibraryCardCatalog
             }
             else if (x == 3)
             {
-                Console.WriteLine("This is where the Save & Exit method will go"); //Need to add a method to save all the books.
+                //Need to add a method to save all the books.
                 return false;
             }
             else 
@@ -65,6 +66,13 @@ namespace LibraryCardCatalog
                 Console.Clear();
                 return true;
             }
+        }
+        public static void FileName()
+        {
+            Console.WriteLine("1) Create a new file.");
+            Console.WriteLine("2) Open a file.");
+            Console.ReadLine();
+            Console.Clear();
         }
 
 
