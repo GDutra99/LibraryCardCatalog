@@ -14,6 +14,12 @@ namespace LibraryCardCatalog
         public int YearPublished { get; set; }
         public Genre Genre { get; set; }
 
+
+        public Book () //had to create an empty constructor for the SaveBook method, something to do with paramaters not entirely sure why it works
+        {
+
+        }
+
         public Book(string title, string author, int yearPublished, Genre genre)
         {
             Title = title;

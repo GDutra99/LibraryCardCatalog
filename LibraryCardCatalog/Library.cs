@@ -8,22 +8,23 @@ namespace LibraryCardCatalog
 {
     public class Program
     {
-        
+
 
         public static void Main(string[] args)
         {
-            //FileName();
+
+            List<Book> myBooks = new List<Book>(); // *Important* so for the list to be used by all of the methods it needed to be delcared in main so its been moved from the ListBooks method to here
             bool displayMenu = true;
             while (displayMenu)
             {
-               displayMenu = MainMenu();
+                displayMenu = MainMenu(myBooks);
             }
 
 
 
 
         }
-        public static bool MainMenu()
+        public static bool MainMenu(List<Book> myBooks)//all of the methods now are given access to the list myBooks through the argument of the method
         {
             Console.WriteLine("Welcome to the digital library, choose an option:");
             Console.WriteLine("1) List All Books");
@@ -37,8 +38,8 @@ namespace LibraryCardCatalog
             if (x == 1)
             {
                 Console.Clear();
-                CardCatalog.ListBooks();
-                Console.WriteLine("Press enter to continue."); //Besides of the foreach loop this is working fine and I don't think it needs change for now.
+                CardCatalog.ListBooks(myBooks); //when invoking the method ListBooks I need to pass myBooks into the argument
+                Console.WriteLine("Press enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
                 return true;
@@ -46,7 +47,7 @@ namespace LibraryCardCatalog
             else if (x == 2)
             {
                 Console.Clear();
-                CardCatalog.AddBook(); // changed this now we can just call the method.
+                CardCatalog.AddBook(myBooks); // Same deal as ListBooks we need to pass myBooks in the argument
                 Console.WriteLine("Press enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
@@ -54,10 +55,29 @@ namespace LibraryCardCatalog
             }
             else if (x == 3)
             {
-                //Need to add a method to save all the books.
+                //so essentially had to run the FileName method in main in order to keep it from being garbage collected
+                // commented out your code for a menu option as I only worked on the "Create a new file" option
+                //the "Open a file" option I did not complete,  the if loop you had for that method I kept it is commented out below for when we add Open a file
+
+                            //Console.WriteLine("1) Create a new file.");
+                            //Console.WriteLine("2) Open a file.");
+                            //string b = Console.ReadLine();
+                            //int y;
+                            //int.TryParse(b, out y);
+                            //string FileName = "placeholder";
+
+                Console.Clear();
+                Console.WriteLine("Please create a file name");
+                string FileName = Console.ReadLine(); // this is where the user inputs FileName for the SaveBook method
+                CardCatalog.BookSave(myBooks,FileName);//calling the Save method
+                Console.Clear();
+                
                 return false;
             }
-            else 
+
+
+
+            else
             {
                 Console.Clear();
                 Console.WriteLine("Option not available.");
@@ -66,25 +86,40 @@ namespace LibraryCardCatalog
                 Console.Clear();
                 return true;
             }
+
         }
-        public static void FileName()
-        {
-            Console.WriteLine("1) Create a new file.");
-            Console.WriteLine("2) Open a file.");
-            string b = Console.ReadLine();
-            int y;
-            int.TryParse(b, out y);
-            
+        //public static string FileName()
+        //{
+        //    return
+        //if (y == 1)
+        //   {
 
-            
-            
-            //Console.ReadLine();
-            //Console.Clear();
-        }
+        //   }
+        //   else if (y == 2)
+        //   {
+        //       Console.Clear();
+        //       CardCatalog.AddBook(myBooks); // changed this now we can just call the method.
+        //       Console.WriteLine("Press enter to continue.");
+        //       Console.ReadLine();
+        //       Console.Clear();
+        //       return true;
 
 
+        //   }
+        //}
+
+
+
+
+
+
+        //Console.ReadLine();
+        //Console.Clear();
     }
+
+
 }
+
 //Book b1 = new Book("Percy Jackson", "me", 2016, Genre.ActionAdventure);
 //Book b2 = new Book("Percy Jackson2", "me", 2016, Genre.ActionAdventure);
 //List<Book> myBooks = new List<Book>();
