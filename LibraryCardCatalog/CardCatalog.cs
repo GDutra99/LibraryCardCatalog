@@ -57,7 +57,7 @@ namespace LibraryCardCatalog
 
             myBooks.Add(newBook); // adds the new book to the list
 
-            Console.WriteLine("Thanks! You have added the book {0} written by {1} pushlised in the year {2} in the Genre {3}",newBook.Title, newBook.Author,newBook.YearPublished,newBook.Genre);
+            Console.WriteLine("Thanks! You have added the book {0} into your virtual library.",newBook.Title);
             Console.ReadLine(); //just some fluff gives the user some text showing them what they entered, nonessential
 
             
