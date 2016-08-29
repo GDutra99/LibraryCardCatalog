@@ -31,9 +31,10 @@ namespace LibraryCardCatalog
         public static bool MainMenu(List<Book> myBooks, string FileName)//all of the methods now are given access to the list myBooks through the argument of the method
         {
             Console.WriteLine("Welcome to the digital library, choose an option:");
-            Console.WriteLine("1) List All Books");
+            Console.WriteLine("1) List Current Books");
             Console.WriteLine("2) To Add A Book");
             Console.WriteLine("3) To Save and Exit");
+            Console.WriteLine("4) To Retrieve List");
             string a = Console.ReadLine();
             int x;
             int.TryParse(a, out x);
@@ -42,7 +43,7 @@ namespace LibraryCardCatalog
             if (x == 1)
             {
                 Console.Clear();
-                CardCatalog.ListBooks(myBooks, FileName); //when invoking the method ListBooks I need to pass myBooks into the argument
+                CardCatalog.ListBooks(myBooks); //when invoking the method ListBooks I need to pass myBooks into the argument
                 Console.WriteLine("Press enter to continue.");
                 Console.ReadLine();
                 Console.Clear();
@@ -63,6 +64,15 @@ namespace LibraryCardCatalog
                 CardCatalog.BookSave(myBooks, FileName);//calling the Save method
                 Console.Clear();
                 return false;
+            }
+            else if (x == 4)
+            {
+                Console.Clear();
+                myBooks = CardCatalog.CallList(FileName);
+                Console.WriteLine("Press enter to continue.");
+                Console.ReadLine();
+                Console.Clear();
+                return true;           
             }
 
 
