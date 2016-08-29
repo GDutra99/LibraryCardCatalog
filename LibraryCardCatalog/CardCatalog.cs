@@ -35,14 +35,18 @@ namespace LibraryCardCatalog
 
             try
             {
-                FileStream fs = new FileStream("C:\\Users\\codingtemple\\Desktop\\" + FileName + ".xml", FileMode.OpenOrCreate);
-                TextReader reader = new StreamReader(fs);
-                List<Book> myBooks2 = (List<Book>)ser.Deserialize(reader);
-                foreach (Book book in myBooks2)
-
+                List<Book> myBooks2;
+                using (FileStream fs = new FileStream("C:\\Users\\codingtemple\\Desktop\\" + FileName + ".xml", FileMode.OpenOrCreate))
                 {
-                    Console.WriteLine(book.Title + " " + book.Author + " " + book.YearPublished + " " + book.Genre); //Needed to use "+" instead of "," also added dead space inbetween each to its not all smashed together
-                    Console.WriteLine();
+                    TextReader reader = new StreamReader(fs);
+                    myBooks2 = (List<Book>)ser.Deserialize(reader);
+                    foreach (Book book in myBooks2)
+
+                    {
+                        Console.WriteLine(book.Title + " " + book.Author + " " + book.YearPublished + " " + book.Genre); //Needed to use "+" instead of "," also added dead space inbetween each to its not all smashed together
+                        Console.WriteLine();
+                    }
+                    fs.Close();
                 }
                 return myBooks2;
             }
