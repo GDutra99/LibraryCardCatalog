@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryCardCatalog
 {
+    [Serializable]
      public class Book
     {
         
