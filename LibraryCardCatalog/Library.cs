@@ -18,7 +18,7 @@ namespace LibraryCardCatalog
             List<Book> myBooks = new List<Book>();// *Important* so for the list to be used by all of the methods it needed to be delcared in main so its been moved from the ListBooks method to here
 
 
-            Console.WriteLine("Please create a file name, if opening a previously created library enter in the file name now.");
+            Console.WriteLine("Choose file name");
             string FileName = Console.ReadLine(); // this is where the user inputs FileName for the SaveBook method
             bool displayMenu = true;
             while (displayMenu)

@@ -30,19 +30,32 @@ namespace LibraryCardCatalog
         }
         internal static List<Book> CallList(string FileName)
         {
+
             XmlSerializer ser = new XmlSerializer(typeof(List<Book>));
-            FileStream fs = new FileStream("C:\\Users\\codingtemple\\Desktop\\" + FileName + ".xml", FileMode.OpenOrCreate);
-            TextReader reader = new StreamReader(fs);
-            List<Book> myBooks2 = (List<Book>) ser.Deserialize(reader);
-            return myBooks2;
 
+            try
+            {
+                FileStream fs = new FileStream("C:\\Users\\codingtemple\\Desktop\\" + FileName + ".xml", FileMode.OpenOrCreate);
+                TextReader reader = new StreamReader(fs);
+                List<Book> myBooks2 = (List<Book>)ser.Deserialize(reader);
+                foreach (Book book in myBooks2)
 
+                {
+                    Console.WriteLine(book.Title + " " + book.Author + " " + book.YearPublished + " " + book.Genre); //Needed to use "+" instead of "," also added dead space inbetween each to its not all smashed together
+                    Console.WriteLine();
+                }
+                return myBooks2;
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Please save and exit the application");
+                return null;
+               
+            }
+                
 
-            //XmlNodeList eleList = doc.GetElementsByTagName("Book");
-            //for (int i = 0; i < eleList.Count; i++)
-            //{
-            //    Console.WriteLine(eleList[i].InnerText);// this is printing out the book info from a saved list, unsure how to fix formatting issue of no spaces
-            //}
+                
+            
     }
 
 
@@ -71,13 +84,6 @@ namespace LibraryCardCatalog
             } while (displayGenre == false);
 
             Book newBook = new Book(title, author, year, genre); //takes the user input and makes a book
-
-
-            IFormatter formatter = new BinaryFormatter();// This code SHOULD serialize all the books created through this method
-            Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, newBook);
-            stream.Close();
-
             myBooks.Add(newBook); // adds the new book to the list
 
             Console.WriteLine("Thanks! You have added the book {0} written by {1} pushlised in the year {2} in the Genre {3}", newBook.Title, newBook.Author, newBook.YearPublished, newBook.Genre);
